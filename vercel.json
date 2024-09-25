@@ -10,6 +10,7 @@
     }
   ],
   "routes": [
+    { "src": "/resume.json", "dest": "/resume.json" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

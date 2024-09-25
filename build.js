@@ -7,7 +7,13 @@ const _ = require('underscore');
 const DIST_DIR = './dist';
 const RESUME_FILE = './resume.json';
 
-const resumeData = require(RESUME_FILE);
+let resumeData;
+try {
+  resumeData = require(RESUME_FILE);
+} catch (error) {
+  console.error('Error loading resume.json:', error);
+  resumeData = {}; // Provide a default empty object
+}
 
 // Helper: breaklines
 Handlebars.registerHelper('breaklines', function(text) {
@@ -45,6 +51,10 @@ async function main() {
     await fs.ensureDir(path.join(__dirname, DIST_DIR));
     await fs.writeFile(path.join(__dirname, DIST_DIR, 'index.html'), html);
     console.log(`index.html written to ${path.join(__dirname, DIST_DIR, 'index.html')}`);
+
+    // Copy resume.json to dist directory
+    await fs.copyFile(RESUME_FILE, path.join(__dirname, DIST_DIR, 'resume.json'));
+    console.log(`resume.json copied to ${path.join(__dirname, DIST_DIR, 'resume.json')}`);
 
     console.log('Resume built successfully!');
   } catch (error) {
