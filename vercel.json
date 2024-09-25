@@ -4,8 +4,11 @@
       "src": "package.json",
       "use": "@vercel/node",
       "config": {
-        "buildCommand": "npm run vercel-build"
+        "buildCommand": "node build.js"
       }
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/dist/$1" }
   ]
 }
