@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const axios = require('axios')
 const puppeteer = require('puppeteer')
 
-const gist = 'HUSAM-07/653384179dc00151b2e547861adfe6c3'
+const gist = 'antfu/ceb04ede6daf195eaf51e32b6aef5d4e'
 
 async function buildHTML() {
   await fs.remove('./dist')
