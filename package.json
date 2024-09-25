@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "concurrently \"npx grunt watch\" \"node ./serve.js ./resume.json\"",
     "build": "node ./build.js",
-    "start": "node ./serve.js ./dist/index.html"
+    "start": "node ./serve.js ./dist/index.html",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "gravatar": "^1.8.2",

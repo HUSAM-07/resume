@@ -44,6 +44,7 @@ async function main() {
 
     await fs.ensureDir(path.join(__dirname, DIST_DIR));
     await fs.writeFile(path.join(__dirname, DIST_DIR, 'index.html'), html);
+    console.log(`index.html written to ${path.join(__dirname, DIST_DIR, 'index.html')}`);
 
     console.log('Resume built successfully!');
   } catch (error) {
